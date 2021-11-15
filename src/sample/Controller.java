@@ -19,6 +19,12 @@ public class Controller {
     private Button buttonCarre;
     @FXML
     private Button buttonRacine;
+    @FXML
+    private Button buttonInverse;
+    @FXML
+    private Button buttonNegatif;
+    @FXML
+    private Button buttonEffacer;
 
 
     public void clicAdditonner(){
@@ -49,5 +55,19 @@ public class Controller {
     public void clicRacine(){
         String chiffre = textField.getText();
         textField.setText(chiffre+"√");
+    }
+
+    public void clicInverse(){
+        String chiffre = textField.getText();
+        textField.setText(chiffre+"1/");
+    }
+
+    public void clicNegatif(){
+        String chiffre = textField.getText();
+        textField.setText(chiffre+"-");
+    }
+
+    public void clicEffacer(){
+        textField.clear();
     }
 }
