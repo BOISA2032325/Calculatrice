@@ -40,6 +40,8 @@ public class Controller {
     private FlowPane flowPane;
     @FXML
     private GridPane gridPane;
+    @FXML
+    private Double reponse;
 
 
 
@@ -59,6 +61,7 @@ public class Controller {
     public void clicAdditonner(){
         String premierChiffre = textField.getText();
         textField.setText(premierChiffre+"+");
+
     }
 
     public void clicSoustraire(){
@@ -129,4 +132,13 @@ public class Controller {
         double resultat = resultat1 * resultat2;
         textField.setText(String.valueOf(resultat));
     }
+
+    public void reponse(){
+        String operation = textField.getText();
+        String separateur = "\\+" + "\\-" + "\\*";
+        String[] chaine = operation.split(separateur);
+
+    }
+
+
 }
