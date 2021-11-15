@@ -2,7 +2,10 @@ package sample;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Menu;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.GridPane;
 
 public class Controller {
     @FXML
@@ -25,6 +28,30 @@ public class Controller {
     private Button buttonNegatif;
     @FXML
     private Button buttonEffacer;
+    @FXML
+    private Menu menuStandard;
+    @FXML
+    private Menu menuScientifique;
+    @FXML
+    private Menu menuConversion;
+    @FXML
+    private FlowPane flowPane;
+    @FXML
+    private GridPane gridPane;
+
+
+
+    public void clicMenuStandard(){
+        gridPane.add(flowPane,1,1);
+    }
+
+    public void clicMenuScientifique(){
+
+    }
+
+    public void clicMenuConversion(){
+
+    }
 
 
     public void clicAdditonner(){

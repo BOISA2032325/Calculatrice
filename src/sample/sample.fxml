@@ -9,28 +9,27 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<GridPane alignment="center" hgap="10" prefHeight="377.0" prefWidth="385.0" vgap="10" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
-   <MenuBar prefHeight="34.0" prefWidth="366.0" GridPane.rowIndex="1">
+<GridPane fx:id="" alignment="center" hgap="10" prefHeight="377.0" prefWidth="385.0" vgap="10" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <MenuBar prefHeight="26.0" prefWidth="0.0" GridPane.rowIndex="1">
      <menus>
-       <Menu mnemonicParsing="false" text="Standard" />
-       <Menu mnemonicParsing="false" text="Scientifique" />
-       <Menu mnemonicParsing="false" text="Outils de conversion" />
+       <Menu fx:id="menuStandard" onAction="#clicMenuStandard" mnemonicParsing="false" text="Standard" />
+       <Menu fx:id="menuScientifique" mnemonicParsing="false" text="Scientifique" />
+       <Menu fx:id="menuConversion" mnemonicParsing="false" text="Outils de conversion" />
      </menus>
    </MenuBar>
-   <TextField prefHeight="338.0" prefWidth="366.0" GridPane.rowIndex="5" />
-
-
-   <FlowPane prefHeight="376.0" prefWidth="366.0" GridPane.rowIndex="11">
+   <TextField fx:id="textField" prefHeight="91.0" prefWidth="366.0" GridPane.rowIndex="5" />
+   
+   <FlowPane fx:id="flowPane" prefHeight="54.0" prefWidth="366.0" GridPane.rowIndex="11">
       <children>
-         <Button fx:id="buttonAdditionner" onAction="#clicAdditonner" prefHeight="26.0" prefWidth="74.0" text="Addition">Additionner</Button>
-         <Button fx:id="buttonSoustraction" onAction="#clicSoustraire" prefHeight="25.0" prefWidth="79.0" text="Soustraction">Soustraire</Button>
-         <Button fx:id="buttonMultiplication" onAction="#clicMultiplication" prefHeight="27.0" prefWidth="106.0" text="Multiplication">Multiplication</Button>
-         <Button fx:id="buttonDivision" onAction="#clicDivision" prefHeight="28.0" prefWidth="106.0" text="Division">Division</Button>
-         <Button fx:id="buttonRacine" onAction="#clicRacine" prefHeight="34.0" prefWidth="83.0" text="Racine carré">Racine</Button>
-         <Button fx:id="buttonCarre" onAction="#clicCarre" prefHeight="34.0" prefWidth="68.0" text="Au carré">Carre</Button>
-         <Button fx:id="buttonNegatif" onAction="#clicNegatif" prefHeight="34.0" prefWidth="106.0" text="Négatif">Négatif</Button>
-         <Button fx:id="buttonEffacer" onAction="#clicEffacer" prefHeight="34.0" prefWidth="106.0" text="Effacer">Effacer</Button>
-         <Button fx:id="buttonInverse" onAction="#clicInverse" prefHeight="38.0" prefWidth="84.0" text="Inverse">Inverse</Button>
+         <Button fx:id="buttonAdditionner" onAction="#clicAdditonner" prefHeight="90.0" prefWidth="118.0" text="+">Additionner</Button>
+         <Button fx:id="buttonSoustraction" onAction="#clicSoustraire" prefHeight="91.0" prefWidth="113.0" text="-">Soustraire</Button>
+         <Button fx:id="buttonMultiplication" onAction="#clicMultiplication" prefHeight="90.0" prefWidth="132.0" text="*">Multiplication</Button>
+         <Button fx:id="buttonDivision" onAction="#clicDivision" prefHeight="98.0" prefWidth="120.0" text="/">Division</Button>
+         <Button fx:id="buttonRacine" onAction="#clicRacine" prefHeight="99.0" prefWidth="115.0" text="√">Racine</Button>
+         <Button fx:id="buttonCarre" onAction="#clicCarre" prefHeight="102.0" prefWidth="130.0" text="^2">Carre</Button>
+         <Button fx:id="buttonNegatif" onAction="#clicNegatif" prefHeight="82.0" prefWidth="121.0" text="+/-">Negatif</Button>
+         <Button fx:id="buttonInverse" onAction="#clicInverse" prefHeight="82.0" prefWidth="115.0" text="1/x">Inverse</Button>
+         <Button fx:id="buttonEffacer" onAction="#clicEffacer" prefHeight="82.0" prefWidth="127.0" text="Effacer">Effacer</Button>
       </children>
    </FlowPane>
    <columnConstraints>
