@@ -29,6 +29,8 @@ public class Controller {
     @FXML
     private Button buttonEffacer;
     @FXML
+    private Button buttonEgal;
+    @FXML
     private Menu menuStandard;
     @FXML
     private Menu menuScientifique;
@@ -96,5 +98,35 @@ public class Controller {
 
     public void clicEffacer(){
         textField.clear();
+    }
+
+    public void calculMoin(){
+        String[] parts = textField.getText().split("-");
+        String carac1 = parts[0];
+        String carac2 = parts[1];
+        double resultat1 = Integer.parseInt(carac1);
+        double resultat2 = Integer.parseInt(carac2);
+        double resultat = resultat1 - resultat2;
+        textField.setText(String.valueOf(resultat));
+    }
+
+    public void calculPlus(){
+        String[] parts = textField.getText().split("\\+");
+        String carac1 = parts[0];
+        String carac2 = parts[1];
+        double resultat1 = Integer.parseInt(carac1);
+        double resultat2 = Integer.parseInt(carac2);
+        double resultat = resultat1 + resultat2;
+        textField.setText(String.valueOf(resultat));
+    }
+
+    public void calculFois(){
+        String[] parts = textField.getText().split("\\*");
+        String carac1 = parts[0];
+        String carac2 = parts[1];
+        double resultat1 = Integer.parseInt(carac1);
+        double resultat2 = Integer.parseInt(carac2);
+        double resultat = resultat1 * resultat2;
+        textField.setText(String.valueOf(resultat));
     }
 }
