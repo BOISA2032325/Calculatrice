@@ -7,6 +7,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.GridPane;
 
+import java.nio.Buffer;
+import java.util.Stack;
+
 public class Controller {
     @FXML
     private TextField textField;
@@ -133,12 +136,91 @@ public class Controller {
         textField.setText(String.valueOf(resultat));
     }
 
-    public void reponse(){
-        String operation = textField.getText();
-        String separateur = "\\+" + "\\-" + "\\*";
-        String[] chaine = operation.split(separateur);
+    public void calculDiviser(){
+        String[] parts = textField.getText().split("/");
+        String carac1 = parts[0];
+        String carac2 = parts[1];
+        double resultat1 = Integer.parseInt(carac1);
+        double resultat2 = Integer.parseInt(carac2);
+        double resultat = resultat1/resultat2;
+        textField.setText(String.valueOf(resultat));
+    }
 
+    public void calculCarre(){
+        String[] parts = textField.getText().split("\\^2");
+        String carac1 = parts[0];
+        double resultat1 = Integer.parseInt(carac1);
+        double resultat = Math.pow(resultat1,2);
+        textField.setText(String.valueOf(resultat));
+    }
+
+    public void calculRacine(){
+        String[] parts = textField.getText().split("√");
+        String carac1 = parts[1];
+        double resultat1 = Integer.parseInt(carac1);
+        double resultat = Math.sqrt(resultat1);
+        textField.setText(String.valueOf(resultat));
+    }
+
+    public void calculInverse(){
+        String[] parts = textField.getText().split("1/");
+        String carac1 = parts[1];
+        double resultat1 = Integer.parseInt(carac1);
+        double resultat = (1/resultat1);
+        textField.setText(String.valueOf(resultat));
     }
 
 
+
+    public void reponse(){
+        //https://programmer.ink/think/using-stack-to-use-simple-calculator-java-implementation.html
+
+        String express = textField.getText();
+        int index = 0;
+        double num1 = 0;
+        double num2 = 0;
+        double res = 0;
+        char ch = ' ';
+        int oper = 0;
+        ArrayStack numStack = new ArrayStack(10);
+        ArrayStack operStack = new ArrayStack(10);
+        while (true){
+            ch = express.substring(index,index+1).charAt(0);
+            if (operStack.isOper(ch)){
+                if(!operStack.isEmpty()){
+
+                    if(operStack.priority(ch)<=operStack.priority(operStack.peek())){
+                        num1 = numStack.pop();
+                        num2 = numStack.pop();
+                        oper = operStack.pop();
+                        res = operStack.cal(num1,num2,oper);
+                        numStack.push((int) res);
+                        operStack.push(ch);
+                    }else{
+                        operStack.push(ch);
+                    }
+                }else{
+
+                    operStack.push(ch);
+                }
+            }else {
+                numStack.push(ch-48);
+            }
+            index++;
+            if(index >= express.length()){
+                break;
+            }
+        }
+        while (true){
+            if(operStack.isEmpty()){
+                break;
+            }
+            num1 = numStack.pop();
+            num2 = numStack.pop();
+            oper = operStack.pop();
+            res = operStack.cal(num1,num2,oper);
+            numStack.push((int) res);
+        }
+        textField.setText("= " + numStack.pop());
+    }
 }

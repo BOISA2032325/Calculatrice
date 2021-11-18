@@ -30,8 +30,8 @@
          <Button fx:id="buttonNegatif" onAction="#clicNegatif" prefHeight="82.0" prefWidth="121.0" text="+/-">Negatif</Button>
          <Button fx:id="buttonInverse" onAction="#clicInverse" prefHeight="82.0" prefWidth="115.0" text="1/x">Inverse</Button>
          <Button fx:id="buttonEffacer" onAction="#clicEffacer" prefHeight="82.0" prefWidth="127.0" text="Effacer">Effacer</Button>
-         <Button fx:id="buttonEgal" onAction="#calculMoin" prefHeight="82.0" prefWidth="127.0" text="=">Egal</Button>
-         <Button fx:id="buttonEgal" onAction="#calculMoin" prefHeight="82.0" prefWidth="127.0" text="=">Egal</Button>
+         <Button fx:id="buttonEgal" onAction="#reponse" prefHeight="82.0" prefWidth="127.0" text="=">Egal</Button>
+
       </children>
    </FlowPane>
    <columnConstraints>
