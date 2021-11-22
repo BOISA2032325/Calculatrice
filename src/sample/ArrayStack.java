@@ -11,7 +11,6 @@ public class ArrayStack {
     }
 
     public boolean isEmpty() {
-
         return top == -1;
     }
 
@@ -57,11 +56,11 @@ public class ArrayStack {
     }
 
     public boolean isOper(char oper){
-        return oper == '+' || oper == '-' || oper =='*' || oper == '/' || oper == '√';
+        return oper == '+' || oper == '-' || oper =='*' || oper == '/' || oper == '√' || oper =='^';
     }
 
     public int priority(int oper){
-        if(oper == '√'){
+        if(oper == '^'){
             return 2;
         }
         else if(oper == '*' || oper == '/'){
@@ -79,14 +78,26 @@ public class ArrayStack {
         double res = 0.0;
         switch (oper){
             case '+': res = num1 + num2;
-                break;
+            break;
             case '-': res = num2 - num1;
-                break;
+            break;
             case '*': res = num1 * num2;
-                break;
+            break;
             case '/': res = num2 /num1;
             break;
-            case '√': res = Math.sqrt(num2);
+            case '√': res = Math.sqrt(num1);
+            break;
+            case '^': res = Math.pow(num1,2);
+        }
+        return res;
+    }
+
+    public double cal2(double num,int oper){
+        double res = 0.0;
+        switch (oper){
+            case '√': res = Math.sqrt(num);
+                break;
+            case '^': res = Math.pow(num,2);
         }
         return res;
     }

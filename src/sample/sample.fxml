@@ -22,7 +22,7 @@
    <FlowPane fx:id="flowPane" prefHeight="54.0" prefWidth="366.0" GridPane.rowIndex="11">
       <children>
          <Button fx:id="buttonAdditionner" onAction="#clicAdditonner" prefHeight="90.0" prefWidth="118.0" text="+">Additionner</Button>
-         <Button fx:id="buttonSoustraction" onAction="#clicSoustraire" prefHeight="91.0" prefWidth="113.0" text="-">Soustraire</Button>
+         <Button fx:id="buttonSoustraction" onAction="#clicSoustraire" prefHeight="91.0" prefWidth="113.0" text="-">Soustraction</Button>
          <Button fx:id="buttonMultiplication" onAction="#clicMultiplication" prefHeight="90.0" prefWidth="132.0" text="*">Multiplication</Button>
          <Button fx:id="buttonDivision" onAction="#clicDivision" prefHeight="98.0" prefWidth="120.0" text="/">Division</Button>
          <Button fx:id="buttonRacine" onAction="#clicRacine" prefHeight="99.0" prefWidth="115.0" text="√">Racine</Button>

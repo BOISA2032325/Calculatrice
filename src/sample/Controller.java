@@ -7,7 +7,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.GridPane;
 
+import java.lang.reflect.InvocationTargetException;
 import java.nio.Buffer;
+import java.util.EmptyStackException;
 import java.util.Stack;
 
 public class Controller {
@@ -84,7 +86,7 @@ public class Controller {
 
     public void clicCarre(){
         String chiffre = textField.getText();
-        textField.setText(chiffre+"^2");
+        textField.setText(chiffre+"^");
     }
 
     public void clicRacine(){
@@ -147,7 +149,7 @@ public class Controller {
     }
 
     public void calculCarre(){
-        String[] parts = textField.getText().split("\\^2");
+        String[] parts = textField.getText().split("\\^");
         String carac1 = parts[0];
         double resultat1 = Integer.parseInt(carac1);
         double resultat = Math.pow(resultat1,2);
@@ -179,6 +181,7 @@ public class Controller {
         int index = 0;
         double num1 = 0;
         double num2 = 0;
+        double num = 0;
         double res = 0;
         char ch = ' ';
         int oper = 0;
@@ -189,18 +192,33 @@ public class Controller {
             if (operStack.isOper(ch)){
                 if(!operStack.isEmpty()){
 
-                    if(operStack.priority(ch)<=operStack.priority(operStack.peek())){
-                        num1 = numStack.pop();
-                        num2 = numStack.pop();
-                        oper = operStack.pop();
-                        res = operStack.cal(num1,num2,oper);
-                        numStack.push((int) res);
-                        operStack.push(ch);
-                    }else{
-                        operStack.push(ch);
+                    try {
+                        if(operStack.priority(ch)<=operStack.priority(operStack.peek())){
+                            num1 = numStack.pop();
+                            num2 = numStack.pop();
+                            oper = operStack.pop();
+                            res = operStack.cal2(num1,oper);
+                            numStack.push((int) res);
+                            operStack.push(ch);
+                        }
+                        else{
+                            operStack.push(ch);
+                        }
+                    }
+                    catch (EmptyStackException e){
+                        if(operStack.priority(ch)<=operStack.priority(operStack.peek())){
+                            num = numStack.pop();
+                            oper = operStack.pop();
+                            res = operStack.cal2(num,oper);
+                            numStack.push((int) res);
+                            operStack.push(ch);
+                        }
+                        else{
+                            operStack.push(ch);
+                        }
+                        e.printStackTrace();
                     }
                 }else{
-
                     operStack.push(ch);
                 }
             }else {
